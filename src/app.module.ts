@@ -6,6 +6,7 @@ import { MongooseModule } from '@nestjs/mongoose';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { ThrottlerModule } from '@nestjs/throttler';
 import { UserModule } from './user/user.module';
+
 @Module({
   imports: [AuthenticationModule,
             UserModule,
