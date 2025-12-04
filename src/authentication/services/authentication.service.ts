@@ -4,13 +4,14 @@ import { LoginUserDto } from '../dto/login-user.dto';
 import { AuthJwtService } from './authentication.jwt.service';
 import { UserService } from 'src/user/user.service';
 import { User } from 'src/user/schemas/user.schema';
+import { UserDto } from 'src/user/dto/user.dto';
 
 @Injectable()
 export class AuthenticationService {
   constructor(
      private readonly authJWTService: AuthJwtService,
      private readonly userService: UserService) {}
-  async create(createUserDto: CreateUserDto): Promise<User|null> {
+  async create(createUserDto: CreateUserDto): Promise<UserDto|null> {
     try{
     const isUserExists = await this.userService.findOne(createUserDto.email);
     if(isUserExists){
